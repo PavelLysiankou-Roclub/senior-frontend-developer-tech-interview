@@ -13,3 +13,6 @@
 
 
 - Can you explain the difference between OAuth 2.0 and OpenID Connect (OIDC) ?
+
+
+- How do you think about time and space complexity in frontend code ? Can you give examples where Big O matters in UI performance ?
