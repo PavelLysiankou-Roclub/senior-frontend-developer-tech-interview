@@ -31,5 +31,4 @@ function App() {
 
 ### Follow-up:
 
-1. Is this a React issue or a JavaScript issue ? Why ?
-2. 
+Is this a React issue or a JavaScript issue ? Why ?
