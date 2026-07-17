@@ -1,33 +1,35 @@
-# Exercise 3: Token Refresh Race Conditions
+## Introduction:
 
-## Scenario
+The class component defines increment as a regular method.<br>
+What issues do you see ?
 
-The application runs against a multi-pod backend. A user has the same app open
-in two browser tabs:
+```ts
+class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
 
-1. `Tab 1` and `Tab 2` share the same access token.
-2. The token expires at the same time in both tabs.
-3. Both tabs may try to refresh it simultaneously.
+    increment() {
+        this.setState({ count: this.state.count + 1 });
+    }
 
-This can cause a race condition where one tab refreshes successfully while the
-other invalidates the session or logs the user out.
+    render() {
+        return (
+            <div>
+                <p id="count">Count: {this.state.count}</p>
+                <button id="inc" onClick={this.increment}>+</button>
+            </div>
+        );
+    }
+}
 
-## Task
+function App() {
+    return <Counter />;
+}
+```
 
-Explain how you would design the token refresh flow to prevent this race
-condition.
+### Follow-up:
 
-Cover:
-
-1. Cross-tab coordination.
-2. Handling requests during refresh.
-3. Backend guarantees for refresh token rotation or reuse.
-4. Recovery from failed or stale refresh attempts.
-
-Use the diagram as a reference.
-
-![Token refresh race condition diagram](img.png)
-
-### Follow-up
-
-Where and how would you store access and refresh tokens securely in the browser ?
+1. Is this a React issue or a JavaScript issue ? Why ?
+2. 
